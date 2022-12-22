@@ -5,29 +5,19 @@
 
 const generateFirstListsContainer = () => {
 	for (const list of CONFIG.firstlistsContainer) {
+    let lists = ""
+    for (let item = 0; item < list.links.length; item++) {
+      const element = list.links[item];
+      lists =+ `<a
+      target="${CONFIG.openInNewTab ? '_blank' : ''}"
+      href="${element.link}"
+      class="listItem"
+      >${element.name}</a>`
+    }
 		let item = `
         <div class="card list list__${list.id}" id="list_${list.id}">
           <i class="listIcon" icon-name="${list.icon}"></i>
-          <a
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          href="${list.links[0].link}"
-          class="listItem"
-          >${list.links[0].name}</a>
-          <a
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          href="${list.links[1].link}"
-          class="listItem"
-          >${list.links[1].name}</a>
-          <a
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          href="${list.links[2].link}"
-          class="listItem"
-          >${list.links[2].name}</a>
-          <a
-          target="${CONFIG.openInNewTab ? '_blank' : ''}"
-          href="${list.links[3].link}"
-          class="listItem"
-          >${list.links[3].name}</a>
+          ${lists}
         </div>
       `;
 		const position = 'beforeend';
