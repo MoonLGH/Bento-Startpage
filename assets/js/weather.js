@@ -26,15 +26,13 @@ function setPosition(position) {
 		getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
 		return;
 	}
-	navigator.geolocation.getCurrentPosition(
-		pos => {
-			getWeather(pos.coords.latitude.toFixed(3), pos.coords.longitude.toFixed(3));
-		},
-		err => {
-			console.error(err);
-			getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
-		}
-	);
+	try {
+		navigator.geolocation.getCurrentPosition(pos => {getWeather(pos.coords.latitude.toFixed(3), pos.coords.longitude.toFixed(3));});
+	} catch (err){
+		console.log(err)
+		getWeather(CONFIG.defaultLatitude, CONFIG.defaultLongitude);
+	}
+	
 }
 
 function getWeather(latitude, longitude) {
@@ -49,6 +47,7 @@ function getWeather(latitude, longitude) {
 			weather.temperature.value = tempUnit == 'C' ? celsius : (celsius * 9) / 5 + 32;
 			weather.description = data.weather[0].description;
 			weather.iconId = data.weather[0].icon;
+			weather.location = data.name
 		})
 		.then(function() {
 			displayWeather();
@@ -59,4 +58,6 @@ function displayWeather() {
 	iconElement.innerHTML = `<img src="assets/icons/${CONFIG.weatherIcons}/${weather.iconId}.png"/>`;
 	tempElement.innerHTML = `${weather.temperature.value.toFixed(0)}°<span class="darkfg">${tempUnit}</span>`;
 	descElement.innerHTML = weather.description;
+	
+	document.querySelector("#places").innerHTML = weather.location
 }

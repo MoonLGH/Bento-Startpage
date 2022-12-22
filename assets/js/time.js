@@ -20,12 +20,9 @@ function displayClock() {
 		hh = hh ? hh : 12;
 	}
 
-	document.getElementById('hour').innerText = hh;
+	document.getElementById('DaH').innerText = `${mm} ${dd}, ${hh}`;
 	document.getElementById('separator').innerHTML = ' : ';
 	document.getElementById('minutes').innerText = min + ampm;
-
-	document.getElementById('month').innerText = mm;
-	document.getElementById('day').innerText = dd;
 
 	setTimeout(displayClock, 1000);
 }
