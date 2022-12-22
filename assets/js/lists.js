@@ -5,22 +5,25 @@
 
 const generateFirstListsContainer = () => {
 	for (const list of CONFIG.firstlistsContainer) {
-    let lists = ""
-    for (let item = 0; item < list.links.length; item++) {
-      const element = list.links[item];
-      lists =+ `<a
+    let listsItem = ""
+    for (let i = 0; i < list.links.length; i++) {
+      const element = list.links[i];
+      console.log(element)
+      listsItem += `<a
       target="${CONFIG.openInNewTab ? '_blank' : ''}"
       href="${element.link}"
       class="listItem"
       >${element.name}</a>`
     }
+    console.log(listsItem)
 		let item = `
         <div class="card list list__${list.id}" id="list_${list.id}">
           <i class="listIcon" icon-name="${list.icon}"></i>
-          ${lists}
+          ${listsItem}
         </div>
       `;
 		const position = 'beforeend';
+    console.log(item)
 		lists_1.insertAdjacentHTML(position, item);
 	}
 };
