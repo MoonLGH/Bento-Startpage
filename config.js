@@ -23,7 +23,7 @@ const CONFIG = {
 	greetingNight: '寝るよ！、',
 
 	// Layout
-	bentoLayout: 'bento', // 'bento', 'lists', 'buttons'
+	bentoLayout: 'custom', // 'bento', 'lists', 'buttons'
 
 	// Weather
 	weatherKey: '25bc90a1196e6f153eece0bc0b0fc9eb', // Write here your API Key
@@ -92,9 +92,9 @@ const CONFIG = {
 	secondButtonsContainer: [
 		{
 			id: '1',
-			name: 'Music',
-			icon: 'headphones',
-			link: 'https://open.spotify.com',
+			name: 'Nginx Conf',
+			icon: 'network',
+			link: 'https://nginx.farrelah.my.id',
 		},
 		{
 			id: '2',
@@ -207,10 +207,6 @@ const CONFIG = {
 				{
 					name: 'Go',
 					link: 'https://www.reddit.com/r/golang/',
-				},
-				{
-					name: 'Repos',
-					link: 'https://github.com/migueravila',
 				},
 			],
 		},

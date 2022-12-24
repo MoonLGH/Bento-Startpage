@@ -12,6 +12,7 @@ const generateFirstButtonsContainer = () => {
           class="card button button__${button.id}"
         >
           <i class="buttonIcon" icon-name="${button.icon}"></i>
+		  ${button.name}
         </a>
     `;
 
@@ -30,7 +31,8 @@ const generateSecondButtonsContainer = () => {
           class="card button button__${button.id}"
         >
           <i class="buttonIcon" icon-name="${button.icon}"></i>
-        </a>
+		  ${button.name}
+		  </a>
     `;
 
 		const position = 'beforeend';
@@ -45,6 +47,10 @@ const generateButtons = () => {
 			generateFirstButtonsContainer();
 			break;
 		case 'buttons':
+			generateFirstButtonsContainer();
+			generateSecondButtonsContainer();
+			break;
+		case 'custom':
 			generateFirstButtonsContainer();
 			generateSecondButtonsContainer();
 			break;

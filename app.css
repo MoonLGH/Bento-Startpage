@@ -41,9 +41,7 @@ body {
 
 body {
   backdrop-filter: blur(2px);
-  width: 100vw;
   height: 100%;
-  min-height: 100vh;
   background-color: var(--background);
   display: flex;
   align-items: center;
@@ -325,12 +323,31 @@ button:active {
   grid-gap: 1.5rem;
 }
 
+.linksBlock2 {
+  grid-row: 5 / span 2;
+  grid-column: 1 / span 4;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  grid-gap: 1.5rem;
+}
+
 .linksBlockLeft {
   grid-row: 1 / span 2;
   grid-column: 1 / span 2;
 }
 
+.linksBlockLeft2 {
+  grid-row: 1 / span 2;
+  grid-column: 1 / span 2;
+}
+
 .linksBlockRight {
+  grid-row: 1 / span 2;
+  grid-column: 3 / span 2;
+}
+
+.linksBlockRight2 {
   grid-row: 1 / span 2;
   grid-column: 3 / span 2;
 }
@@ -387,6 +404,7 @@ button.button-edite {
 }
 
 .button {
+  grid-gap: 10px;
   position: relative;
   display: flex;
   justify-content: center;
@@ -531,8 +549,17 @@ button.button-edite {
     grid-column: 1 / span 4;
     grid-row: 3 / span 1;
   }
+  .linksBlockRight2 {
+    display: block;
+    grid-column: 1 / span 4;
+    grid-row: 3 / span 1;
+  }
 
   .linksBlockLeft {
+    grid-column: 1 / span 4;
+  }
+
+  .linksBlockLeft2 {
     grid-column: 1 / span 4;
   }
 

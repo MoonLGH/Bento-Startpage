@@ -21,36 +21,25 @@ const generateFirstListsContainer = () => {
         </div>
       `;
 		const position = 'beforeend';
-    console.log(item)
 		lists_1.insertAdjacentHTML(position, item);
 	}
 };
 
 const generateSecondListsContainer = () => {
-	for (const list of CONFIG.secondListsContainer) {
+  for (const list of CONFIG.secondListsContainer) {
+    let listsItem = ""
+    for (let i = 0; i < list.links.length; i++) {
+      const element = list.links[i];
+      listsItem += `<a
+      target="${CONFIG.openInNewTab ? '_blank' : ''}"
+      href="${element.link}"
+      class="listItem"
+      >${element.name}</a>`
+    }
 		let item = `
         <div class="card list list__${list.id}" id="list_${list.id}">
-        <i class="listIcon" icon-name="${list.icon}"></i>
-        <a
-        target="${CONFIG.openInNewTab ? '_blank' : ''}"
-        href="${list.links[0].link}"
-        class="listItem"
-        >${list.links[0].name}</a>
-        <a
-        target="${CONFIG.openInNewTab ? '_blank' : ''}"
-        href="${list.links[1].link}"
-        class="listItem"
-        >${list.links[1].name}</a>
-        <a
-        target="${CONFIG.openInNewTab ? '_blank' : ''}"
-        href="${list.links[2].link}"
-        class="listItem"
-        >${list.links[2].name}</a>
-        <a
-        target="${CONFIG.openInNewTab ? '_blank' : ''}"
-        href="${list.links[3].link}"
-        class="listItem"
-        >${list.links[3].name}</a>
+          <i class="listIcon" icon-name="${list.icon}"></i>
+          ${listsItem}
         </div>
       `;
 		const position = 'beforeend';
@@ -67,6 +56,10 @@ const generateLists = () => {
 			generateFirstListsContainer();
 			generateSecondListsContainer();
 			break;
+    case 'custom':
+      generateFirstListsContainer();
+      generateSecondListsContainer();
+      break;
 		default:
 			break;
 	}

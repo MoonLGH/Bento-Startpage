@@ -37,6 +37,16 @@ const generateLayout = () => {
 			linksBlockRight.insertAdjacentHTML(position, secondButtonsContainer);
 			linksBlock.classList.add('removeGap');
 			break;
+		case 'custom':
+			linksBlockLeft.insertAdjacentHTML(position, firstButtonsContainer);
+			linksBlockRight.insertAdjacentHTML(position, firstListsContainer);
+			linksBlockLeft2.insertAdjacentHTML(position, secondButtonsContainer);
+			linksBlockRight2.insertAdjacentHTML(position, secondListsContainer);
+			linksBlock.classList.remove('reduceGap');
+			linksBlock2.classList.remove('reduceGap');
+			linksBlock.classList.add('removeGap');
+			linksBlock2.classList.add('removeGap');
+			break;
 		default:
 			break;
 	}
